@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="mb-4">Admin Dashboard</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Balance</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.balance }}</td>
+            <td>
+              <input
+                type="number"
+                class="form-control mb-2"
+                placeholder="Enter amount"
+                [(ngModel)]="editBalanceValue[i]"
+              />
+              <button class="btn btn-success btn-sm" (click)="addBalance(i)">
+                Add Amount
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
