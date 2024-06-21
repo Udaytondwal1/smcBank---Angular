@@ -20,9 +20,9 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,  // Ensure AppRoutingModule is imported
+    AppRoutingModule,
     RouterModule,  
-    FormsModule 
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

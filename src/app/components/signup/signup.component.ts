@@ -15,36 +15,56 @@ export class SignupComponent implements OnInit {
     password: "",
     confirm: "",
     balance: 0,
+    Issignin: false
   };
 
   constructor() {}
 
   ngOnInit() {
-    const Localdata = localStorage.getItem("signUpUsers");
-    if (Localdata != null) {
-      this.signupUsers = JSON.parse(Localdata);
+    const localData = localStorage.getItem("signUpUsers");
+    if (localData) {
+      try {
+        this.signupUsers = JSON.parse(localData);
+        if (!Array.isArray(this.signupUsers)) {
+          this.signupUsers = [];
+        }
+      } catch (error) {
+        console.error("Error parsing localStorage data: ", error);
+        this.signupUsers = [];
+      }
     }
   }
 
-  Onsignup() {
-    const userExists = this.signupUsers.some((user) => user.phone === this.signupObj.phone);
-    if (this.signupObj.name == "") {
-      alert("Fields must not be empty");
-    } else if (userExists) {
+  onSignup() {
+    const userExists = this.signupUsers.some(user => user.phone === this.signupObj.phone);
+    if (this.signupObj.name === "" || this.signupObj.phone === "" || this.signupObj.password === "" || this.signupObj.confirm === "") {
+      alert("All fields must be filled");
+      return;
+    }
+    if (this.signupObj.password !== this.signupObj.confirm) {
+      alert("Passwords do not match");
+      return;
+    }
+    if (userExists) {
       alert("User already exists!");
       return;
     } else {
-      console.log("data submitted");
-      this.signupUsers.push(this.signupObj);
+      console.log("Data submitted");
+      this.signupUsers.push({ ...this.signupObj });
       localStorage.setItem("signUpUsers", JSON.stringify(this.signupUsers));
-      alert("User SignUp Successful!");
-      this.signupObj = {
-        name: "",
-        phone: "",
-        password: "",
-        confirm: "",
-        balance: this.signupObj.balance,
-      };
+      alert("User Signup Successful!");
+      this.resetForm();
     }
+  }
+
+  private resetForm() {
+    this.signupObj = {
+      name: "",
+      phone: "",
+      password: "",
+      confirm: "",
+      balance: 0,
+      Issignin: false
+    };
   }
 }
