@@ -8,6 +8,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { FormsModule } from '@angular/forms';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     SignupComponent,
     HomepageComponent,
-    AdminComponent
+    AdminComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,

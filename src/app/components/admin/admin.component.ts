@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-admin",
@@ -10,7 +11,7 @@ export class AdminComponent implements OnInit {
   editIndex: number = -1;
   editBalanceValue: number[] = [];
 
-  constructor() {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.loadUsersFromLocalStorage();
@@ -34,6 +35,12 @@ export class AdminComponent implements OnInit {
     console.log(this.editBalanceValue[index])
     this.saveUsersToLocalStorage();
     this.editBalanceValue[index] = 0;
+  }
+
+
+  logout() {
+    alert("Logout Successful");
+    this.router.navigate(["/AdminLogin"]);
   }
 
 }
