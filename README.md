@@ -1,6 +1,6 @@
 # SMC Bank - Built With Angular 
 
-### Live: [SMC-BANK](https://smc-bank-angular-f8q1r3qt3-udaytondwal1s-projects.vercel.app/login)
+### Live: [SMC-BANK](https://smc-bank-angular.vercel.app/login)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.29.
 
