@@ -10,6 +10,7 @@ export class AdminComponent implements OnInit {
   public users: any[] = [];
   editIndex: number = -1;
   editBalanceValue: number[] = [];
+  errmsg: string = "";
 
   constructor(private router: Router) { }
 
@@ -22,6 +23,8 @@ export class AdminComponent implements OnInit {
     const Localdata = localStorage.getItem("signUpUsers");
     if (Localdata != null) {
       this.users = JSON.parse(Localdata);
+    } else {
+      this.errmsg = "No Users Found";
     }
   }
 

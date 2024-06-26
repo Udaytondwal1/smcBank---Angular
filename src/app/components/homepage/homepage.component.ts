@@ -52,6 +52,7 @@ export class HomepageComponent implements OnInit {
       if (this.isUserExist) {
         if (this.amount > 0 && this.amount <= this.signedInUser.balance) {
           // Update balances
+          console.log(this.isUserExist);
           this.signedInUser.balance -= this.amount;
           this.isUserExist.balance += this.amount;
 
