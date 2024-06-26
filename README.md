@@ -2,6 +2,7 @@
 
 ### Live: [SMC-BANK](https://smc-bank-angular.vercel.app/login)
 
+This Project Uses Browser LocalStorage to Store all Data.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.29.
 
 ## Development server
